@@ -9,6 +9,7 @@ import (
 	"github.com/MukhammedAli/GoFinalProject/pkg/handler"
 	"github.com/MukhammedAli/GoFinalProject/pkg/repository"
 	"github.com/MukhammedAli/GoFinalProject/pkg/service"
+	"github.com/joho/godotenv"
 	_ "github.com/lib/pq"
 	"github.com/spf13/viper"
 )
