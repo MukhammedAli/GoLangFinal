@@ -1,0 +1,26 @@
+version: '3.9'
+
+services:
+  go-revel-crud:
+    build:
+      context: .
+      dockerfile: ./Dockerfile.local
+    ports:
+      - "8000:8000"
+    volumes:
+      - .:/app
+    environment:
+      - ENV=dev
+      - PORT=8000
+      - DB_URL=postgres://go-revel-crud:go-revel-crud@postgres/go-revel-crud?sslmode=disable
+
+  postgres:
+    image: postgres:14.0-alpine
+    ports:
+      - 5436:5432
+    volumes:
+      - ~/apps/go-revel-crud/pgdata:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_PASSWORD=qwerty
+      - POSTGRES_USER=postgres
+      - POSTGRES_DB=postgres
